@@ -8,7 +8,8 @@
     "ci:coverage": "npm run test:coverage -- --ci",
     "test:coverage": "jest --coverage",
     "docs": "jsdoc2md --configure jsdoc.conf.json --template TEMPLATE.md index.js > README.md",
-    "coveralls": "npm run ci"
+    "ci:coverage": "npm run test:coverage -- --ci",
+    "coveralls": "npm run ci:coverage && cat ./coverage/lcov.info | coveralls"
   },
   "repository": {
     "type": "git",
