@@ -1,6 +1,6 @@
 # kr-persistence-mongoose
 
-[![Build Status](https://travis-ci.org/dicearr/kr-persistence-mongoose.svg?branch=master)](https://travis-ci.org/dicearr/kr-persistence-mongoose)
+[![Build Status](https://travis-ci.org/dicearr/kr-persistence-mongoose.svg?branch=master)](https://travis-ci.org/dicearr/kr-persistence-mongoose) [![Coverage Status](https://coveralls.io/repos/github/dicearr/kr-persistence-mongoose/badge.svg?branch=master)](https://coveralls.io/github/dicearr/kr-persistence-mongoose?branch=master)
 
 > [koa-rester](https://github.com/dicearr/koa-rester) module for adding Mongo persistence using mongoose.
 
@@ -41,7 +41,7 @@ rejected with an error.
 
 | Param | Type |
 | --- | --- |
-| id | <code>String</code> | 
+| id | <code>String</code> |
 
 <a name="Persistence+create"></a>
 
@@ -53,7 +53,7 @@ Creates a new object with the given data.
 
 | Param | Type |
 | --- | --- |
-| data | <code>Object</code> | 
+| data | <code>Object</code> |
 
 <a name="Persistence+update"></a>
 
@@ -92,4 +92,3 @@ Deletes an existing object.
 | Param | Type | Description |
 | --- | --- | --- |
 | id | <code>Number</code> | The id of the object to be deleted |
-
