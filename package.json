@@ -1,0 +1,37 @@
+{
+  "name": "kr-persistence-mongoose",
+  "description": "koa-rester module for adding Mongo persistence using mongoose.",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "ci:coverage": "npm run test:coverage -- --ci",
+    "test:coverage": "jest --coverage",
+    "docs": "jsdoc2md --configure jsdoc.conf.json --template TEMPLATE.md index.js > README.md",
+    "coveralls": "npm run ci"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dicearr/kr-persistence-mongoose.git"
+  },
+  "author": "Diego Ceresuela",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dicearr/kr-persistence-mongoose/issues"
+  },
+  "homepage": "https://github.com/dicearr/kr-persistence-mongoose#readme",
+  "devDependencies": {
+    "coveralls": "^3.0.0",
+    "jest": "^21.2.1",
+    "jsdoc": "^3.5.5",
+    "jsdoc-strip-async-await": "^0.1.0",
+    "jsdoc-to-markdown": "^3.0.0",
+    "mongoose": "^4.12.1",
+    "standard": "^10.0.3"
+  },
+  "standard": {
+    "env": [
+      "jest"
+    ]
+  }
+}
