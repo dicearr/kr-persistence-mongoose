@@ -49,7 +49,7 @@ class Persistence {
         error.data = this.format(err.errors)
         throw error
       })
-      .then(el => el.toJSON())
+      .then(el => el._id)
   }
   /**
    * Updates an existing object with the given data.
