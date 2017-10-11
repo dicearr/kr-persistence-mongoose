@@ -79,10 +79,9 @@ describe('Persistence', () => {
         done()
       }
     })
-    it('should return the created object with valid data', async () => {
-      const el = await p.create({ title: 'foo', description: 'bar' })
-      expect(el.title).toBe('foo')
-      expect(el.description).toBe('bar')
+    it('should return the created object id with valid data', async () => {
+      const id = await p.create({ title: 'foo', description: 'bar' })
+      expect(mongoose.Types.ObjectId.isValid(id)).toBe(true)
     })
   })
   describe('.update', () => {
@@ -126,11 +125,10 @@ describe('Persistence', () => {
       }
     })
     it('should modify the original with valid data', async () => {
-      const el = await p.create({ title: 'foo', description: 'bar' })
-      const old = await p.update(el._id, { value: 1 })
-      const n = await p.list(el._id)
+      const id = await p.create({ title: 'foo', description: 'bar' })
+      const old = await p.update(id, { value: 1 })
+      const n = await p.list(id)
       expect(old.value).toBeFalsy()
-      expect(el.value).toBeFalsy()
       expect(n.value).toBe(1)
     })
   })
@@ -175,11 +173,10 @@ describe('Persistence', () => {
       }
     })
     it('should modify the original with valid data', async () => {
-      const el = await p.create({ title: 'foo', description: 'bar' })
-      const old = await p.replace(el._id, { title: 'foo', description: 'bar', value: 1 })
-      const n = await p.list(el._id)
+      const id = await p.create({ title: 'foo', description: 'bar' })
+      const old = await p.replace(id, { title: 'foo', description: 'bar', value: 1 })
+      const n = await p.list(id)
       expect(old.value).toBeFalsy()
-      expect(el.value).toBeFalsy()
       expect(n.value).toBe(1)
     })
   })
@@ -209,12 +206,11 @@ describe('Persistence', () => {
         done()
       }
     })
-    it('should modify the original with valid data', async (done) => {
-      const el = await p.create({ title: 'foo', description: 'bar' })
-      const removed = await p.delete(el._id)
-      expect(removed).toEqual(el)
+    it('should delete the original with valid id', async (done) => {
+      const id = await p.create({ title: 'foo', description: 'bar' })
+      await p.delete(id)
       try {
-        await p.list(el._id)
+        await p.list(id)
         done.fail()
       } catch (e) {
         expect(e).toBeInstanceOf(Error)
